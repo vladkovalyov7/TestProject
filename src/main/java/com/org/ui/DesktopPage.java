@@ -1,5 +1,6 @@
 package com.org.ui;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,10 +16,12 @@ public class DesktopPage extends BasePO{
     private WebElement displaySelectButton;
 
     @FindBy(xpath = "//option[text()='4']")
-    private WebElement DisplaySelect4Button;
+    private WebElement displaySelect4Button;
 
-    @FindBy(xpath = "h2.product-title")
-    private List<WebElement> listComputersTitle;
+//    @FindBy(xpath = "h2.product-title")
+    public List<WebElement> listComputersTitle = driver.findElements(By.xpath("h2.product-title"));
+
+
 
     @FindBy(xpath = "[id='products-orderby']")
     private WebElement sortBySelectButton;
@@ -29,5 +32,29 @@ public class DesktopPage extends BasePO{
     @FindBy(xpath = "//input[@value='Add to cart']")
     private List<WebElement> addToCartListProductButton;
 
+    public DesktopPage openDisplaySelectMenu(){
+        displaySelectButton.click();
+        return this;
+    }
+
+    public DesktopPage openDisplaySelect4(){
+        displaySelect4Button.click();
+        return this;
+    }
+
+    public DesktopPage openSortBySelectMenu(){
+        sortBySelectButton.click();
+        return this;
+    }
+
+    public DesktopPage sortBySelectHighToLow(){
+        sortBySelectHighToLowButton.click();
+        return this;
+    }
+
+    public ProductPage addToCartProduct(){
+        addToCartListProductButton.get(1).click();
+        return new ProductPage(driver);
+    }
 
 }

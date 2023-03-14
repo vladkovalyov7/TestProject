@@ -22,13 +22,15 @@ public class BaseTestRunner {
     public void setDriver(ITestContext context) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        options.addArguments("--headless");
-        options.addArguments("--window-size=1920,1080", "--no-sandbox", "'--disable-dev-shm-usage");
+//        options.addArguments("--headless");
+//        options.addArguments("--window-size=1920,1080", "--no-sandbox", "'--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+
 
         driver = new ChromeDriver(options);
         context.setAttribute("myDriver", driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.getBaseWebUrl();
+//        driver.navigate().to("http://demowebshop.tricentis.com/");
     }
 
     @AfterSuite

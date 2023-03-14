@@ -12,5 +12,10 @@ public class ProductPage extends BasePO{
     @FindBy(xpath = "//span[text()='Shopping cart']")
     private WebElement openShoppingCart;
 
+    public CartPage openCartOfProduct(){
+        openShoppingCart.click();
+        return new CartPage(driver);
+    }
+
 
 }

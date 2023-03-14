@@ -1,21 +1,21 @@
 package com.org.ui;
-
-
-import com.org.ui.Pages.ClubsPO.AddClubModal;
-import com.org.ui.Pages.ClubsPO.ClubPage;
-import com.org.ui.Pages.ProfilePO.MyProfilePage;
-import com.org.ui.runners.BaseTestRunner;
-import jdk.jfr.Description;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.testng.Assert;
-import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
-public class ClubTests extends BaseTestRunner {
+//
+//
+//import com.org.ui.Pages.ClubsPO.AddClubModal;
+//import com.org.ui.Pages.ClubsPO.ClubPage;
+//import com.org.ui.Pages.ProfilePO.MyProfilePage;
+//import com.org.ui.runners.BaseTestRunner;
+//import jdk.jfr.Description;
+//import org.apache.commons.lang3.RandomStringUtils;
+//import org.testng.Assert;
+//import org.testng.ITestContext;
+//import org.testng.annotations.AfterClass;
+//import org.testng.annotations.BeforeClass;
+//import org.testng.annotations.BeforeMethod;
+//import org.testng.annotations.Test;
+//import org.testng.asserts.SoftAssert;
+//
+//public class ClubTests extends BaseTestRunner {
 
 //    @BeforeClass
 //    public void setUp(ITestContext context) {
@@ -171,6 +171,6 @@ public class ClubTests extends BaseTestRunner {
 //            driver.quit();
 //        }
 //    }
-}
+//}
 
 
