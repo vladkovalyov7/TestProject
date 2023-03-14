@@ -39,18 +39,14 @@ public class DesktopPage extends BasePO{
         return this;
     }
 
-    public DesktopPage openSortBySelectMenu(){
-        sortBySelectButton.click();
+    public DesktopPage SortByHighToLow(){
+        Select dropdown = new Select(driver.findElement(By.id("products-orderby")));
+        dropdown.selectByVisibleText("Price: High to Low");
         return this;
     }
 
-    public DesktopPage sortBySelectHighToLow(){
-        sortBySelectHighToLowButton.click();
-        return this;
-    }
-
-    public ProductPage addToCartProduct(){
-        addToCartListProductButton.get(1).click();
+    public ProductPage chooseProduct(){
+        addToCartListProductButton.get(0).click();
         return new ProductPage(driver);
     }
 

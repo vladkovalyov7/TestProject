@@ -27,39 +27,43 @@ public class ProductTest extends BaseTestRunner {
 
     @Test
     public void addProductToCart() {
+        String nameProduct = "Build your own expensive computer";
       new HomePage(driver)
               .openComputersCategory();
       new ComputerPage(driver)
               .openDesktopCategory();
       new DesktopPage(driver)
               .choose4DisplaySelectMenu();
-        List<WebElement> listComputersTitle = driver.findElements(By.cssSelector("h2.product-title"));
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(listComputersTitle.size(),4);
-        new DesktopPage(driver)
-              .openSortBySelectMenu()
-              .sortBySelectHighToLow()
-              .addToCartProduct();
+      List<WebElement> listComputersTitle = driver.findElements(By.cssSelector("h2.product-title"));
+      SoftAssert softAssert = new SoftAssert();
+      softAssert.assertEquals(listComputersTitle.size(),4);
+      new DesktopPage(driver)
+              .SortByHighToLow()
+              .chooseProduct();
       new ProductPage(driver)
+              .addProductToCart()
               .openCartOfProduct();
       String name = new CartPage(driver)
-              .getNameProduct().toString();
-      Assert.assertEquals(name,"Build your own expensive computer");
-        softAssert.assertAll();
-
-//        String nameOfClubFromDB = club.getName();
-//        String resultOfSearch = new HomePage(driver)
-//                .clickLocationButton()
-//                .clickCityInTheLocationSection(0)
-//                .enterTextInTheSearchField(nameOfClubFromDB)
-//                .clickSearchButton()
-//                .getCards()
-//                .get(0)
-//                .getTitle();
-//        Assert.assertEquals(resultOfSearch, nameOfClubFromDB);
-//        ClubsEntity clubByNameFromDB = service.getByName(nameOfClubFromDB);
-//        Assert.assertEquals(clubByNameFromDB.getName(), resultOfSearch);
+              .getNameProduct();
+      Assert.assertEquals(name,nameProduct);
+      new CartPage(driver)
+              .openProduct();
+      String countItemsCart = new ProductPage(driver)
+              .chooseProcessorFast()
+              .chooseRam8GB()
+              .chooseAvailableSoftware()
+              .addProductToCart()
+              .getCountItemsCart();
+      softAssert.assertEquals(countItemsCart,"(2)");
+      String sumSecondItem = new ProductPage(driver)
+              .openCartOfProduct()
+              .getSumItem();
+      softAssert.assertEquals(sumSecondItem,"2105.00");
+      new CartPage(driver)
+              .removeProduct();
+      softAssert.assertAll();
     }
+
 
     @AfterClass
     public void tearDown() {
