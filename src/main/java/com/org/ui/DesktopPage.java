@@ -19,10 +19,7 @@ public class DesktopPage extends BasePO{
     @FindBy(xpath = "//option[text()='4']")
     private WebElement displaySelect4Button;
 
-//    @FindBy(xpath = "h2.product-title")
     public List<WebElement> listComputersTitle = driver.findElements(By.xpath("h2.product-title"));
-
-
 
     @FindBy(xpath = "[id='products-orderby']")
     private WebElement sortBySelectButton;
@@ -49,5 +46,4 @@ public class DesktopPage extends BasePO{
         addToCartListProductButton.get(0).click();
         return new ProductPage(driver);
     }
-
 }

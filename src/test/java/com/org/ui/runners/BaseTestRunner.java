@@ -1,7 +1,6 @@
 package com.org.ui.runners;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.opentelemetry.sdk.autoconfigure.spi.ConfigProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -23,7 +22,6 @@ public class BaseTestRunner {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
 //        options.addArguments("--headless");
-//        options.addArguments("--window-size=1920,1080", "--no-sandbox", "'--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
 
 

@@ -67,9 +67,4 @@ public class ProductPage extends BasePO{
         wait.visibility(shoppingCartButton);
         return shoppingCartButton.getText();
     }
-
-
-
-
-
 }

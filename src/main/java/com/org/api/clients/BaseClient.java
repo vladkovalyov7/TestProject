@@ -2,7 +2,6 @@ package com.org.api.clients;
 
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-
 import static io.restassured.RestAssured.given;
 
 public class BaseClient {
@@ -10,13 +9,8 @@ public class BaseClient {
     public final ContentType contentType;
 
     public BaseClient() {
-        this.baseUrl = "https://restful-booker.herokuapp.com/apidoc/index.html";
+        this.baseUrl = "https://restful-booker.herokuapp.com";
         this.contentType = ContentType.JSON;
-    }
-
-    public BaseClient(String url, ContentType contentType) {
-        this.baseUrl = url;
-        this.contentType = contentType;
     }
 
     public RequestSpecification prepareRequest() {

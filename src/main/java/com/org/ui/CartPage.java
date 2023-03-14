@@ -10,8 +10,6 @@ public class CartPage extends BasePO{
     public CartPage(WebDriver driver) {
         super(driver);
     }
-
-
     @FindBy(css = "a.product-name")
     private WebElement productName;
 
