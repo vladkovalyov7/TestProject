@@ -1,6 +1,7 @@
 package com.org.ui.runners;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.opentelemetry.sdk.autoconfigure.spi.ConfigProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,7 +10,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
-
 
 public class BaseTestRunner {
     protected WebDriver driver;
@@ -30,7 +30,6 @@ public class BaseTestRunner {
         driver = new ChromeDriver(options);
         context.setAttribute("myDriver", driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.navigate().to("http://demowebshop.tricentis.com/");
     }
 
     @AfterSuite

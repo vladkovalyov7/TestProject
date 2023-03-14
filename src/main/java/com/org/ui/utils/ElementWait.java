@@ -18,11 +18,6 @@ public class ElementWait {
         wait = new WebDriverWait(driver, TIMEOUT);
     }
 
-    public void visibility(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-
     public void visibility(WebElement element, long seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.visibilityOf(element));
