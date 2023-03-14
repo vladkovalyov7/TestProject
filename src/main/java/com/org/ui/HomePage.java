@@ -20,14 +20,7 @@ public class HomePage extends BasePO {
     @FindBy(xpath = "body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.side-2 > div.block.block-category-navigation > div.listbox > ul > li.active > ul > li:nth-child(1) > a")
     private WebElement desktopButton;
 
-    @FindBy(xpath = "[id='products-pagesize']")
-    private WebElement displaySelectButton;
 
-    @FindBy(xpath = "//option[text()='4']")
-    private WebElement getDisplaySelect4Button;
-
-    @FindBy(xpath = "h2.product-title")
-    private List<WebElement> listComputers;
 
 
 
