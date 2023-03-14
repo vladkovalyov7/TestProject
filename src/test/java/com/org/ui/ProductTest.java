@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -31,10 +32,10 @@ public class ProductTest extends BaseTestRunner {
       new ComputerPage(driver)
               .openDesktopCategory();
       new DesktopPage(driver)
-              .openDisplaySelectMenu()
-              .openDisplaySelect4();
-        List<WebElement> listComputersTitle = driver.findElements(By.xpath("h2.product-title"));
-        Assert.assertEquals(listComputersTitle.size(),4);
+              .choose4DisplaySelectMenu();
+        List<WebElement> listComputersTitle = driver.findElements(By.cssSelector("h2.product-title"));
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(listComputersTitle.size(),4);
         new DesktopPage(driver)
               .openSortBySelectMenu()
               .sortBySelectHighToLow()
@@ -44,6 +45,7 @@ public class ProductTest extends BaseTestRunner {
       String name = new CartPage(driver)
               .getNameProduct().toString();
       Assert.assertEquals(name,"Build your own expensive computer");
+        softAssert.assertAll();
 
 //        String nameOfClubFromDB = club.getName();
 //        String resultOfSearch = new HomePage(driver)

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -32,13 +33,9 @@ public class DesktopPage extends BasePO{
     @FindBy(xpath = "//input[@value='Add to cart']")
     private List<WebElement> addToCartListProductButton;
 
-    public DesktopPage openDisplaySelectMenu(){
-        displaySelectButton.click();
-        return this;
-    }
-
-    public DesktopPage openDisplaySelect4(){
-        displaySelect4Button.click();
+    public DesktopPage choose4DisplaySelectMenu(){
+        Select dropdown = new Select(driver.findElement(By.id("products-pagesize")));
+        dropdown.selectByVisibleText("4");
         return this;
     }
 
