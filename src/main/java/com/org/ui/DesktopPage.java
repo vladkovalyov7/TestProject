@@ -25,4 +25,9 @@ public class DesktopPage extends BasePO{
 
     @FindBy(xpath = "//option[text()='Price: High to Low']")
     private WebElement sortBySelectHighToLowButton;
+
+    @FindBy(xpath = "//input[@value='Add to cart']")
+    private List<WebElement> addToCartListProductButton;
+
+
 }
