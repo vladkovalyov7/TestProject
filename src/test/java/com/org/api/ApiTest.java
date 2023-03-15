@@ -52,7 +52,7 @@ public class ApiTest {
                 .get("https://restful-booker.herokuapp.com/booking/2");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(response.getStatusCode(), 200);
-        softAssert.assertEquals(response.body().jsonPath().getString("firstname"), "Susan");
+        softAssert.assertEquals(response.body().jsonPath().getString("firstname"), "Sally");
         softAssert.assertAll();
     }
 
