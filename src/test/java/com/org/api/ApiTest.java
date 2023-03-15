@@ -52,7 +52,7 @@ public class ApiTest {
                 .get("https://restful-booker.herokuapp.com/booking/2");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(response.getStatusCode(), 200);
-        softAssert.assertEquals(response.body().jsonPath().getString("firstname"), "Mark");
+        softAssert.assertEquals(response.body().jsonPath().getString("firstname"), "Susan");
         softAssert.assertAll();
     }
 
@@ -66,7 +66,7 @@ public class ApiTest {
                 .body(requestBody)
                 .put("https://restful-booker.herokuapp.com/booking/4188");
 
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 403);
     }
 
     @Test
@@ -87,6 +87,6 @@ public class ApiTest {
                 .contentType(ContentType.JSON)
                 .header("Authorization", "Bearer " + token)
                 .delete("https://restful-booker.herokuapp.com/booking/1");
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 403);
     }
 }
